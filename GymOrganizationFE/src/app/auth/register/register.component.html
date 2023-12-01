@@ -1,0 +1,46 @@
+<div class="form-container">
+  <form autocomplete="off">
+    <h2 class="form-field">Sign Up</h2>
+    <div class="form-field">
+      <mat-form-field>
+        <mat-label>First Name</mat-label>
+        <input type="text" matInput placeholder="John">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input type="text" matInput placeholder="Doe">
+      </mat-form-field>
+    </div>
+    <div class="form-field">
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input type="email" matInput placeholder="pat@example.com">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Date of Birth</mat-label>
+        <input matInput [matDatepicker]="picker" placeholder="MM/DD/YYYY">
+<!--        <mat-datepicker-toggle matIconSuffix [for]="picker">-->
+<!--          <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>-->
+<!--        </mat-datepicker-toggle>-->
+<!--        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>-->
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="form-field">
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input type="password" matInput placeholder="pa$$w0rd">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Confirm password</mat-label>
+        <input type="password" matInput placeholder="pa$$w0rd">
+      </mat-form-field>
+    </div>
+    <div class="form-field">
+      <button mat-raised-button color="primary">Sign Up</button>
+    </div>
+    <div class="form-field">
+      <p>If you don't have account <a routerLink="/auth/login">sign in</a></p>
+    </div>
+  </form>
+</div>

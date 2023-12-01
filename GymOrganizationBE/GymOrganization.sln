@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymOrganization", "GymOrganization\GymOrganization.csproj", "{1CC5CED5-AC44-4E3F-9EF4-8456A09BCD98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymOrganization.Infrastructure", "GymOrganization.Infrastructure\GymOrganization.Infrastructure.csproj", "{A9373ED9-B2D9-42E3-A9E4-9FA780DE6DC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymOrganization.Domain", "GymOrganization.Domain\GymOrganization.Domain.csproj", "{5639A16D-8C00-4E75-AEA7-AF30C760C6B8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1CC5CED5-AC44-4E3F-9EF4-8456A09BCD98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CC5CED5-AC44-4E3F-9EF4-8456A09BCD98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CC5CED5-AC44-4E3F-9EF4-8456A09BCD98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CC5CED5-AC44-4E3F-9EF4-8456A09BCD98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9373ED9-B2D9-42E3-A9E4-9FA780DE6DC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9373ED9-B2D9-42E3-A9E4-9FA780DE6DC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9373ED9-B2D9-42E3-A9E4-9FA780DE6DC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9373ED9-B2D9-42E3-A9E4-9FA780DE6DC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5639A16D-8C00-4E75-AEA7-AF30C760C6B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5639A16D-8C00-4E75-AEA7-AF30C760C6B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5639A16D-8C00-4E75-AEA7-AF30C760C6B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5639A16D-8C00-4E75-AEA7-AF30C760C6B8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
