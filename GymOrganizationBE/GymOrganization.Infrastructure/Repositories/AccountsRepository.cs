@@ -1,4 +1,5 @@
-﻿using GymOrganization.Infrastructure.Entities;
+﻿using System.Threading.Tasks;
+using GymOrganization.Infrastructure.Entities;
 using GymOrganization.Infrastructure.RepositoryContracts;
 using GymOrganization.Infrastructure.Results;
 using Microsoft.AspNetCore.Identity;

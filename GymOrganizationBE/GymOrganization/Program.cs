@@ -1,5 +1,6 @@
 using GymOrganization.AppStart;
 using GymOrganization.Middlewares;
+using Microsoft.AspNetCore.Builder;
 
 var builder = WebApplication.CreateBuilder(args);
 

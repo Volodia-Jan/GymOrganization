@@ -1,4 +1,6 @@
-﻿namespace GymOrganization.Domain.Extensions;
+﻿using System;
+
+namespace GymOrganization.Domain.Extensions;
 
 public static class DateTimeExtension
 {

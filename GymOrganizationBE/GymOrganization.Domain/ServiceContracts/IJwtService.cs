@@ -1,4 +1,6 @@
-﻿namespace GymOrganization.Domain.ServiceContracts;
+﻿using System;
+
+namespace GymOrganization.Domain.ServiceContracts;
 
 /// <summary>
 /// Represents JWT functionality

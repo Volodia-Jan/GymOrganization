@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System;
+using AutoMapper;
 using GymOrganization.Domain.DTOs;
 using GymOrganization.Domain.Extensions;
 using GymOrganization.Domain.Requests;

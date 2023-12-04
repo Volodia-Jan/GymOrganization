@@ -1,4 +1,6 @@
-﻿namespace GymOrganization.Domain.DTOs;
+﻿using System;
+
+namespace GymOrganization.Domain.DTOs;
 
 /// <summary>
 /// Represents user DTO
