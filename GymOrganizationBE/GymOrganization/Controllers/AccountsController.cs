@@ -1,7 +1,7 @@
-﻿using System.Threading.Tasks;
-using GymOrganization.Domain.DTOs;
+﻿using GymOrganization.Domain.DTOs;
 using GymOrganization.Domain.Requests;
 using GymOrganization.Domain.ServiceContracts;
+using GymOrganization.Filters;
 using GymOrganization.Infrastructure.Results;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -19,8 +19,9 @@ public class AccountsController : ControllerBase
     {
         _accountsService = accountsService;
     }
-
+    
     [HttpPost("[action]")]
+    [UserNotAuthorize]
     public async Task<OperationResult<UserDto>> Login(LoginRequest loginRequest) =>
         await _accountsService.LoginAsync(loginRequest);
 
