@@ -12,6 +12,7 @@ public static class InfrastructureIoCConfig
     {
         services.AddScoped<IAccountsRepository, AccountsRepository>();
         services.AddScoped<IUsersRepository, UsersRepository>();
+        services.AddScoped<ICatalogRepository, CatalogRepository>();
         
         services.AddDbContext<GymOrganizationDbContext>(opt =>
         {

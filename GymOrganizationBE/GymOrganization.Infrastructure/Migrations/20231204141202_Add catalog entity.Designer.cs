@@ -3,6 +3,7 @@ using System;
 using GymOrganization.Infrastructure.ApplicationDbContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GymOrganization.Infrastructure.Migrations
 {
     [DbContext(typeof(GymOrganizationDbContext))]
-    partial class GymOrganizationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231204141202_Add catalog entity")]
+    partial class Addcatalogentity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.14");

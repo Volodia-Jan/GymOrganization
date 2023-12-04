@@ -16,7 +16,6 @@ public class GymOrganizationMapper : Profile
         CreateMap<CreateUserRequest, ApplicationUser>()
             .BeforeMap((_, d) => d.Id = Guid.NewGuid());
 
-        CreateMap<UpdateUserRequest, ApplicationUser>()
-            .ForMember(e => e.UserName, src => src.MapFrom(req => req.Email));
+        CreateMap<CatalogItem, CatalogItemDto>();
     }
 }

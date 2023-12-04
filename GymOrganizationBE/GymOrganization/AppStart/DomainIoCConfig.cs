@@ -12,6 +12,7 @@ public static class DomainIoCConfig
         services.AddScoped<IAccountsService, AccountsService>();
         services.AddScoped<IUsersService, UsersService>();
         services.AddScoped<IJwtService, JwtService>();
+        services.AddScoped<ICatalogService, CatalogService>();
         
         // registering mappers
         services.AddAutoMapper(typeof(Domain.Mappers.GymOrganizationMapper).Assembly);

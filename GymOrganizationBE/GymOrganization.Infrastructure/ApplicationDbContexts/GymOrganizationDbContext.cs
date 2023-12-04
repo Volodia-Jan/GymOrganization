@@ -10,7 +10,7 @@ public class GymOrganizationDbContext : IdentityDbContext<ApplicationUser, Appli
 {
     public DbSet<ApplicationUser> Users { get; set; }
     public DbSet<ApplicationRole> Roles { get; set; }
-    
+    public DbSet<CatalogItem> CatalogItems { get; set; }
     public GymOrganizationDbContext(DbContextOptions<GymOrganizationDbContext> options) : base(options) {}
 
     protected override void OnModelCreating(ModelBuilder builder)
@@ -19,10 +19,12 @@ public class GymOrganizationDbContext : IdentityDbContext<ApplicationUser, Appli
         var usersSeed = GetUsersSeed("Seeds/usersSeed.json");
         var rolesSeed = GetRoles("Seeds/rolesSeed.json");
         var usersRolesSeed = GetSeedData<List<IdentityUserRole<Guid>>>("Seeds/users-role.json");
+        var catalogSeed = GetSeedData<List<CatalogItem>>("Seeds/catalogItemsSeed.json");
         
         builder.Entity<ApplicationUser>().HasData(usersSeed);
         builder.Entity<ApplicationRole>().HasData(rolesSeed);
         builder.Entity<IdentityUserRole<Guid>>().HasData(usersRolesSeed);
+        builder.Entity<CatalogItem>().HasData(catalogSeed);
     }
 
     private List<ApplicationUser> GetUsersSeed(string fileName)
