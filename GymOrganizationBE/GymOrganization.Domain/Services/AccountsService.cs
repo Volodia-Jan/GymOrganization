@@ -23,9 +23,8 @@ public class AccountsService : IAccountsService
 
     public async Task<OperationResult<UserDto>> LoginAsync(LoginRequest loginRequest)
     {
-        var user = _mapper.Map<ApplicationUser>(loginRequest);
         var result = await _accountsRepository.LoginAsync(loginRequest.Login, loginRequest.Password);
-        var dto = _mapper.Map<UserDto>(user);
+        var dto = _mapper.Map<UserDto>(result.Result);
         // todo handle roles
         dto.Token = _jwtService.GenerateJwt(dto.Id, dto.Email, string.Empty);
         

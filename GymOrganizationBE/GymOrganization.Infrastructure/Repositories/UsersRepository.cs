@@ -19,8 +19,8 @@ public class UsersRepository : IUsersRepository
     {
         return await OperationResult<ApplicationUser>.Invoke(async () =>
         {
-            _dbContext.Users.Update(applicationUser);
-            await _dbContext.SaveChangesAsync();
+            var update = _dbContext.Users.Update(applicationUser);
+            var saveChangesAsync = await _dbContext.SaveChangesAsync();
             return applicationUser;
         });
     }

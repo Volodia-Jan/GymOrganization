@@ -2,6 +2,7 @@
 using GymOrganization.Domain.Requests;
 using GymOrganization.Domain.ServiceContracts;
 using GymOrganization.Infrastructure.Results;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using EmptyResult = GymOrganization.Infrastructure.Results.EmptyResult;
 
@@ -23,6 +24,7 @@ public class AccountsController : ControllerBase
         await _accountsService.LoginAsync(loginRequest);
 
     [HttpPost("[action]")]
+    [Authorize]
     public async Task<OperationResult<EmptyResult>> Logout() =>
         await _accountsService.LogoutAsync();
 }

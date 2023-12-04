@@ -24,7 +24,13 @@ public class UsersService : IUsersService
     public async Task<OperationResult<UserDto>> UpdateUserAsync(UpdateUserRequest updateUserRequest) =>
         await OperationResult<UserDto>.InvokeNotNull(async () =>
         {
-            var result = await _usersRepository.UpdateUserAsync(_mapper.Map<ApplicationUser>(updateUserRequest));
+            var user = await _usersRepository.GetUserByIdAsync(updateUserRequest.Id);
+            user.Result.Email = updateUserRequest.Email;
+            user.Result.UserName = updateUserRequest.Email;
+            user.Result.FirstName = updateUserRequest.FirstName;
+            user.Result.LastName = updateUserRequest.LastName;
+            user.Result.DateOfBirth = updateUserRequest.DateOfBirth;
+            var result = await _usersRepository.UpdateUserAsync(user.Result);
             
             return _mapper.Map<UserDto>(result.Result);
         });
