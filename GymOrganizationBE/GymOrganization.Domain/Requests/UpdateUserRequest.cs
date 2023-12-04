@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace GymOrganization.Domain.Requests;
+﻿namespace GymOrganization.Domain.Requests;
 
 /// <summary>
 /// Represents update user request

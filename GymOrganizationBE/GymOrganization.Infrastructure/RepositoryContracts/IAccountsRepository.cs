@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using GymOrganization.Infrastructure.Entities;
+﻿using GymOrganization.Infrastructure.Entities;
 using GymOrganization.Infrastructure.Results;
 
 namespace GymOrganization.Infrastructure.RepositoryContracts;

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-
-namespace GymOrganization.Infrastructure.Results;
+﻿namespace GymOrganization.Infrastructure.Results;
 
 public class OperationResult<T> where T : class, new() 
 {

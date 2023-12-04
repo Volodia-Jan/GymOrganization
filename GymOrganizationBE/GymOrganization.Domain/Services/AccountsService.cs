@@ -1,9 +1,7 @@
-﻿using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using GymOrganization.Domain.DTOs;
 using GymOrganization.Domain.Requests;
 using GymOrganization.Domain.ServiceContracts;
-using GymOrganization.Infrastructure.Entities;
 using GymOrganization.Infrastructure.RepositoryContracts;
 using GymOrganization.Infrastructure.Results;
 

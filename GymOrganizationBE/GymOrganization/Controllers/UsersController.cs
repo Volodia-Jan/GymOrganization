@@ -1,6 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using GymOrganization.Domain.DTOs;
+﻿using GymOrganization.Domain.DTOs;
 using GymOrganization.Domain.Requests;
 using GymOrganization.Domain.ServiceContracts;
 using GymOrganization.Filters;

@@ -1,6 +1,5 @@
 ﻿using GymOrganization.Domain.ServiceContracts;
 using GymOrganization.Domain.Services;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace GymOrganization.AppStart;
 

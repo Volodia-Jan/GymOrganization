@@ -3,8 +3,6 @@ using GymOrganization.Infrastructure.Entities;
 using GymOrganization.Infrastructure.Repositories;
 using GymOrganization.Infrastructure.RepositoryContracts;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace GymOrganization.AppStart;
 
