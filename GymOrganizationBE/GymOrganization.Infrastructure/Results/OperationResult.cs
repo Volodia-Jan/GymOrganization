@@ -1,9 +1,13 @@
-﻿namespace GymOrganization.Infrastructure.Results;
+﻿using System.Text.Json.Serialization;
+
+namespace GymOrganization.Infrastructure.Results;
 
 public class OperationResult<T> where T : class, new() 
 {
     public ResultStatus Status { get; set; }
     public T? Result { get; set; }
+    
+    [JsonIgnore]
     public Exception? Exception { get; set; }
     public string? ErrorMessage { get; set; }
 

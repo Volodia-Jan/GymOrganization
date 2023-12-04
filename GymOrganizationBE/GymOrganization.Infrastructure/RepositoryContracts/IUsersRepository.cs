@@ -33,10 +33,10 @@ public interface IUsersRepository
     /// <summary>
     /// Adds user to specific role
     /// </summary>
-    /// <param name="applicationUser">Application user</param>
+    /// <param name="userId">Application user ID</param>
     /// <param name="role">Role</param>
     /// <returns>Result of add to role operation</returns>
-    Task<OperationResult<ApplicationUser>> AddToRoleAsync(ApplicationUser applicationUser, Role role);
+    Task<OperationResult<ApplicationUser>> AddToRoleAsync(Guid userId, Role role);
 
     /// <summary>
     /// Gets user by its ID
@@ -44,4 +44,11 @@ public interface IUsersRepository
     /// <param name="userId">User ID</param>
     /// <returns>Result of gets operation</returns>
     Task<OperationResult<ApplicationUser>> GetUserByIdAsync(Guid userId);
+
+    /// <summary>
+    /// Gets user role by its ID
+    /// </summary>
+    /// <param name="userId"></param>
+    /// <returns>Result of gets user role operation</returns>
+    Task<OperationResult<ApplicationRole>> GetUserRoleByUserId(Guid userId);
 }

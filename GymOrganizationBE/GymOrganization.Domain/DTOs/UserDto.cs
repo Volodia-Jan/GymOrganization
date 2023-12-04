@@ -1,4 +1,6 @@
-﻿namespace GymOrganization.Domain.DTOs;
+﻿using GymOrganization.Infrastructure.Entities;
+
+namespace GymOrganization.Domain.DTOs;
 
 /// <summary>
 /// Represents user DTO
@@ -34,6 +36,11 @@ public class UserDto
     /// Gets or sets age
     /// </summary>
     public int Age { get; set; }
+    
+    /// <summary>
+    /// Gets or sets user role
+    /// </summary>
+    public string Role { get; set; }
     
     /// <summary>
     /// Gets or sets token

@@ -3,6 +3,7 @@ using GymOrganization.Infrastructure.Entities;
 using GymOrganization.Infrastructure.RepositoryContracts;
 using GymOrganization.Infrastructure.Results;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace GymOrganization.Infrastructure.Repositories;
 
@@ -19,8 +20,8 @@ public class UsersRepository : IUsersRepository
     {
         return await OperationResult<ApplicationUser>.Invoke(async () =>
         {
-            var update = _dbContext.Users.Update(applicationUser);
-            var saveChangesAsync = await _dbContext.SaveChangesAsync();
+            _dbContext.Users.Update(applicationUser);
+            await _dbContext.SaveChangesAsync();
             return applicationUser;
         });
     }
@@ -45,78 +46,31 @@ public class UsersRepository : IUsersRepository
         });
     }
 
-    public async Task<OperationResult<ApplicationUser>> AddToRoleAsync(ApplicationUser applicationUser, Role role)
+    public async Task<OperationResult<ApplicationUser>> AddToRoleAsync(Guid userId, Role role)
     {
         return await OperationResult<ApplicationUser>.InvokeNotNull(async () =>
         {
             var roleId = _dbContext.Roles.First(r => r.Name == role.ToString()).Id;
             await _dbContext.UserRoles.AddAsync(new IdentityUserRole<Guid>
             {
-                UserId = applicationUser.Id,
+                UserId = userId,
                 RoleId = roleId
             });
 
             await _dbContext.SaveChangesAsync();
 
-            return applicationUser;
+            return await _dbContext.Users.FirstAsync(x => x.Id == userId);
         });
     }
 
     public async Task<OperationResult<ApplicationUser>> GetUserByIdAsync(Guid userId) =>
         await OperationResult<ApplicationUser>.InvokeNotNull(async () => await _dbContext.Users.FindAsync(userId));
+
+    public async Task<OperationResult<ApplicationRole>> GetUserRoleByUserId(Guid userId) =>
+        await OperationResult<ApplicationRole>.InvokeNotNull(async () =>
+        {
+            var userRole = await _dbContext.UserRoles.FirstAsync(x => x.UserId == userId);
+            
+            return await _dbContext.Roles.FirstAsync(x => x.Id == userRole.RoleId);
+        });
 }
-//todo delete this
-// public class UsersRepository : IUsersRepository
-    // {
-    //     private readonly UserManager<ApplicationUser> _userManager;
-    //
-    //     public UsersRepository(UserManager<ApplicationUser> userManager)
-    //     {
-    //         _userManager = userManager;
-    //     }
-    //
-    //     public async Task<OperationResult<ApplicationUser>> UpdateUserAsync(ApplicationUser applicationUser)
-    //     {
-    //         var result = await _userManager.UpdateAsync(applicationUser);
-    //
-    //         return result.Succeeded
-    //             ? OperationResult<ApplicationUser>.Success(applicationUser)
-    //             : OperationResult<ApplicationUser>.Fail("User updating was unsuccessful", applicationUser);
-    //     }
-    //
-    //     public async Task<OperationResult<EmptyResult>> DeleteUserAsync(ApplicationUser applicationUser)
-    //     {
-    //         var result = await _userManager.DeleteAsync(applicationUser);
-    //
-    //         return result.Succeeded
-    //             ? OperationResult<EmptyResult>.Success(new())
-    //             : OperationResult<EmptyResult>.Fail("User deleting was unsuccessful");
-    //     }
-    //
-    //     public async Task<OperationResult<ApplicationUser>> CreateAsync(ApplicationUser applicationUser, string password)
-    //     {
-    //         var result = await _userManager.CreateAsync(applicationUser, password);
-    //
-    //         return result.Succeeded
-    //             ? OperationResult<ApplicationUser>.Success(applicationUser)
-    //             : OperationResult<ApplicationUser>.Fail("User creating was unsuccessful", applicationUser);
-    //     }
-    //
-    //     public async Task<OperationResult<ApplicationUser>> AddToRoleAsync(ApplicationUser applicationUser, Role role)
-    //     {
-    //         var result = await _userManager.AddToRoleAsync(applicationUser, role.ToString());
-    //
-    //         return result.Succeeded
-    //             ? OperationResult<ApplicationUser>.Success(applicationUser)
-    //             : OperationResult<ApplicationUser>.Fail($"Cannot add user to role: {role}", applicationUser);
-    //     }
-    //
-    //     // public async Task<OperationResult<ApplicationUser>> GetUserByIdAsync(Guid userId)
-    //     // {
-    //     //     var result = await _userManager.FindByIdAsync(userId.ToString());
-    //     //     
-    //     //     return result.Succeeded
-    //     //         ? OperationResult<ApplicationUser>.Success(applicationUser)
-    //     //         : OperationResult<ApplicationUser>.Fail($"Cannot add user to role: {role}", applicationUser);
-    //     // }
-    // }

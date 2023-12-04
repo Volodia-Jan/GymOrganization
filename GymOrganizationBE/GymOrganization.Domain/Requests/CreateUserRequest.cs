@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using GymOrganization.Infrastructure.Entities;
 
 namespace GymOrganization.Domain.Requests;
 
@@ -32,6 +33,12 @@ public class CreateUserRequest
     /// </summary>
     [Required(ErrorMessage = "{0} field cannot be empty")]
     public DateTime DateOfBirth { get; set; }
+    
+    /// <summary>
+    /// Gets or sets role of account
+    /// </summary>
+    [DefaultValue(Role.User)]
+    public Role Role { get; set; }
 
     /// <summary>
     /// Gets or sets password

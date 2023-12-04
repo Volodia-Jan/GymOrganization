@@ -32,7 +32,11 @@ public class UsersService : IUsersService
             user.Result.DateOfBirth = updateUserRequest.DateOfBirth;
             var result = await _usersRepository.UpdateUserAsync(user.Result);
             
-            return _mapper.Map<UserDto>(result.Result);
+            var dto = _mapper.Map<UserDto>(result.Result);
+            var userRole = await _usersRepository.GetUserRoleByUserId(dto.Id);
+            dto.Role = userRole.Result.Name;
+
+            return dto;
         });
 
     public async Task<OperationResult<EmptyResult>> DeleteUserAsync(Guid userId)
@@ -51,10 +55,12 @@ public class UsersService : IUsersService
         {
             var result = await _usersRepository.CreateAsync(_mapper.Map<ApplicationUser>(createUserRequest),
                 createUserRequest.Password);
-
+            await _usersRepository.AddToRoleAsync(result.Result!.Id, createUserRequest.Role);
+            
+            var role = await _usersRepository.GetUserRoleByUserId(result.Result.Id);
             var dto = _mapper.Map<UserDto>(result.Result);
-            // todo handle role
-            dto.Token = _jwtService.GenerateJwt(dto.Id, dto.Email, string.Empty);
+            dto.Role = role.Result.Name;
+            dto.Token = _jwtService.GenerateJwt(dto.Id, dto.Email, dto.Role);
 
             return dto;
         });
