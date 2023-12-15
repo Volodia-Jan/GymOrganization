@@ -1,20 +1,20 @@
 <div class="form-container">
-  <form>
+  <form (submit)="login()">
       <h2 class="form-field">Login</h2>
     <div class="form-field">
       <mat-form-field>
         <mat-label>Login</mat-label>
-        <input type="email" matInput placeholder="pat@example.com">
+        <input type="email" matInput placeholder="pat@example.com"  name="login" [(ngModel)]="model.login">
       </mat-form-field>
     </div>
     <div class="form-field">
       <mat-form-field>
         <mat-label>Password</mat-label>
-        <input type="password" matInput placeholder="pa$$w0rd">
+        <input type="password" matInput placeholder="pa$$w0rd" name="password"  [(ngModel)]="model.password">
       </mat-form-field>
     </div>
     <div class="form-field">
-      <button mat-raised-button color="primary">Login</button>
+      <button mat-raised-button color="primary" type="submit">Login</button>
     </div>
     <div class="form-field">
       <p>If you don't have account <a routerLink="/auth/register">sign up</a></p>

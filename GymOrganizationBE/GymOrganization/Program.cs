@@ -7,12 +7,14 @@ builder.Services.AddDomain();
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddJwtAuthorization(builder.Configuration);
 builder.Services.AddSwagger();
+builder.Services.DisableCors();
 
 var app = builder.Build();
 
 app.UseExceptionHandlerMiddleware();
 app.UseAuthentication();
 app.UseRouting();
+app.UseCors("Default");
 app.UseAuthorization();
 app.UseSwagger();
 app.UseSwaggerUI(c =>

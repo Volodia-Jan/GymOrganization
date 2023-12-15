@@ -1,0 +1,26 @@
+:host{
+  flex-grow: 3;
+}
+.subscription-info-container {
+  padding: 20px;
+}
+
+.subscription-card {
+  height: 200px;
+  background: linear-gradient(to right, #000, #333);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.subscription-name {
+  font-size: 24px;
+  color: white;
+}
+
+.subscription-dates {
+  font-size: 14px;
+  color: white;
+  text-align: right;
+}

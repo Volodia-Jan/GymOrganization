@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  backend:
+    build:
+      context: ./GymOrganizationBE
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"
+
+  frontend:
+    build:
+      context: ./GymOrganizationFE
+      dockerfile: Dockerfile
+    ports:
+      - "4200:80"
+    environment:
+      - SOME_ENV_VAR=value

@@ -4,6 +4,7 @@
         <TargetFramework>net7.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
     <ItemGroup>
@@ -32,5 +33,11 @@
       <_ContentIncludedByDefault Remove="Pages\Error.cshtml" />
       <_ContentIncludedByDefault Remove="Pages\_ViewImports.cshtml" />
       <_ContentIncludedByDefault Remove="wwwroot\favicon.ico" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
     </ItemGroup>
 </Project>

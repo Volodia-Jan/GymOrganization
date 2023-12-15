@@ -1,0 +1,39 @@
+.table-container {
+  text-align: center;
+}
+
+.product-table {
+  width: 80%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.product-table th, .product-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.product-table th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.product-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.product-table button {
+  background-color: #008CBA;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.product-table button:hover {
+  background-color: #005080;
+}

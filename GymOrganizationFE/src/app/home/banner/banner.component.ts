@@ -1,13 +1,12 @@
 import {Component, HostListener, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatGridListModule} from "@angular/material/grid-list";
-import {NgImageSliderModule} from "ng-image-slider";
-import {EventType} from "@angular/router";
+import {GalleryComponent} from "ng-gallery";
 
 @Component({
   selector: 'app-banner',
   standalone: true,
-  imports: [CommonModule, MatGridListModule, NgImageSliderModule],
+  imports: [CommonModule, MatGridListModule, GalleryComponent],
   templateUrl: './banner.component.html',
   styleUrl: './banner.component.css'
 })
@@ -48,32 +47,28 @@ export class BannerComponent implements OnInit{
     }
 
     this.sliderConfig = {
-      imageSize: {width: '100%', height: '300px'},
-      infinite: true,
-      autoSlide: 2,
-      animationSpeed: 2,
-      showArrow: false,
-      slideImage: "1",
+      imageSize: 'cover',
+      autoPlay: true,
       images: [
         {
-          image: '/assets/banner/people_gym2.jpg',
-          thumbImage: '/assets/banner/people_gym2.jpg',
+          src: '/assets/banner/people_gym2.jpg',
+          thumb: '/assets/banner/people_gym2.jpg',
         },
         {
-          image: '/assets/banner/people_gym3.jpg',
-          thumbImage: '/assets/banner/people_gym3.jpg',
+          src: '/assets/banner/people_gym3.jpg',
+          thumb: '/assets/banner/people_gym3.jpg',
         },
         {
-          image: '/assets/banner/gym2.jpg',
-          thumbImage: '/assets/banner/gym2.jpg',
+          src: '/assets/banner/gym2.jpg',
+          thumb: '/assets/banner/gym2.jpg',
         },
         {
-          image: '/assets/banner/gym1.jpg',
-          thumbImage: '/assets/banner/gym1.jpg',
+          src: '/assets/banner/gym1.jpg',
+          thumb: '/assets/banner/gym1.jpg',
         },
         {
-          image: '/assets/banner/people_gym1.jpg',
-          thumbImage: '/assets/banner/people_gym1.jpg',
+          src: '/assets/banner/people_gym1.jpg',
+          thumb: '/assets/banner/people_gym1.jpg',
         },
       ]
     }

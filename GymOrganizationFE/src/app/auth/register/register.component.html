@@ -1,24 +1,24 @@
 <div class="form-container">
-  <form autocomplete="off">
+  <form autocomplete="off" (ngSubmit)="register()">
     <h2 class="form-field">Sign Up</h2>
     <div class="form-field">
       <mat-form-field>
         <mat-label>First Name</mat-label>
-        <input type="text" matInput placeholder="John">
+        <input type="text" matInput placeholder="John" name="firstName"  [(ngModel)]="model.firstName">
       </mat-form-field>
       <mat-form-field>
         <mat-label>Last Name</mat-label>
-        <input type="text" matInput placeholder="Doe">
+        <input type="text" matInput placeholder="Doe" name="lastName" [(ngModel)]="model.lastName">
       </mat-form-field>
     </div>
     <div class="form-field">
       <mat-form-field>
         <mat-label>Email</mat-label>
-        <input type="email" matInput placeholder="pat@example.com">
+        <input type="email" matInput placeholder="pat@example.com" name="email" [(ngModel)]="model.email">
       </mat-form-field>
       <mat-form-field class="example-full-width">
         <mat-label>Date of Birth</mat-label>
-        <input matInput [matDatepicker]="picker" placeholder="MM/DD/YYYY">
+        <input matInput [matDatepicker]="picker" placeholder="MM/DD/YYYY" name="dateOfBirth"  [(ngModel)]="model.dateOfBirth">
 <!--        <mat-datepicker-toggle matIconSuffix [for]="picker">-->
 <!--          <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>-->
 <!--        </mat-datepicker-toggle>-->
@@ -29,15 +29,15 @@
     <div class="form-field">
       <mat-form-field>
         <mat-label>Password</mat-label>
-        <input type="password" matInput placeholder="pa$$w0rd">
+        <input type="password" matInput placeholder="pa$$w0rd" name="password" [(ngModel)]="model.password">
       </mat-form-field>
       <mat-form-field>
         <mat-label>Confirm password</mat-label>
-        <input type="password" matInput placeholder="pa$$w0rd">
+        <input type="password" matInput placeholder="pa$$w0rd" name="confirmPassword" [(ngModel)]="model.confirmPassword">
       </mat-form-field>
     </div>
     <div class="form-field">
-      <button mat-raised-button color="primary">Sign Up</button>
+      <button mat-raised-button color="primary" type="submit">Sign Up</button>
     </div>
     <div class="form-field">
       <p>If you don't have account <a routerLink="/auth/login">sign in</a></p>

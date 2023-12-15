@@ -1,0 +1,6 @@
+:host{
+  flex-grow: 1;
+}
+.user-info-container {
+  padding: 20px;
+}

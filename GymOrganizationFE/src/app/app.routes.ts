@@ -5,6 +5,7 @@ import {RegisterComponent} from "./auth/register/register.component";
 import {HomeComponent} from "./home/home.component";
 import {CatalogComponent} from "./catalog/catalog.component";
 import {ProfileComponent} from "./profile/profile.component";
+import {authGuard} from "./_guards/auth.guard";
 
 export const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -14,6 +15,13 @@ export const routes: Routes = [
       {path: 'register', component: RegisterComponent}
     ]
   },
-  {path: 'catalog', component: CatalogComponent},
-  {path: 'profile', component: ProfileComponent}
+  {
+    path: '',
+    runGuardsAndResolvers: 'always',
+    canActivate: [authGuard],
+    children: [
+      {path: 'catalog', component: CatalogComponent},
+      {path: 'profile', component: ProfileComponent}
+    ]
+  }
 ];

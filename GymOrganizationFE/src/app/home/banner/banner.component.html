@@ -4,18 +4,14 @@
       *ngFor="let grid of gridListConfig.grids"
       [colspan]="grid.colspan"
       [rowspan]="grid.rowspan">
-      <img [src]="grid.imagePath">
+      <img [src]="grid.imagePath" alt="">
     </mat-grid-tile>
   </mat-grid-list>
 </div>
 
 <div class="slider">
-  <ng-image-slider
-    [imageSize]="sliderConfig.imageSize"
-    [images]="sliderConfig.images"
-    [showArrow]="sliderConfig.showArrow"
-    [slideImage]="sliderConfig.slideImage"
-    [animationSpeed]="sliderConfig.animationSpeed"
-    [autoSlide]="sliderConfig.autoSlide"
-    [infinite]="sliderConfig.infinite"></ng-image-slider>
+<!--  <gallery [items]="sliderConfig.images"-->
+<!--           [autoPlay]="sliderConfig.autoPlay"-->
+<!--           [imageSize]="sliderConfig.imageSize">-->
+<!--  </gallery>-->
 </div>
